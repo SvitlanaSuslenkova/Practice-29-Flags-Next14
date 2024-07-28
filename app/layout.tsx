@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import "./reset.css";
 import "./globals.css";
 const openSans = Open_Sans({ subsets: ["latin"], weight: "500" });
-const nunitoSans = Nunito_Sans({ subsets: ["latin"], weight: "600" });
+const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Countries of the world",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunitoSans.className}, ${openSans.className}`}>
+      <body className={`${openSans.className}, ${nunitoSans.className}`}>
         <ThemeProvider>
           <Header />
           {children}

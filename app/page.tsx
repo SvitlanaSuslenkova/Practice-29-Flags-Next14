@@ -8,6 +8,7 @@ import SearchInput from "./components/SearchInput/SearchInput";
 import Filter from "./components/Filter/Filter";
 import CardList from "./components/CardList/CardList";
 import Loading from "./components/Loading/Loading";
+import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function Home() {
   const router = useRouter();
@@ -41,22 +42,25 @@ export default function Home() {
     }
     fetchOurData();
   }, []);
-
+  interface Iquery {
+    nameFilter: string | null;
+    filteredregion: string | null;
+  }
   useEffect(() => {
-    const query = {
-      nameFilter: nameFilter || undefined,
-      filteredregion: filteredregion || undefined,
+    const query: Iquery = {
+      nameFilter: nameFilter || null,
+      filteredregion: filteredregion || null,
     };
 
     const newUrl = new URL(window.location.href);
-    Object.keys(query).forEach((key) => {
+    (Object.keys(query) as (keyof Iquery)[]).forEach((key: keyof Iquery) => {
       if (query[key]) {
         newUrl.searchParams.set(key, query[key] as string);
       } else {
         newUrl.searchParams.delete(key);
       }
     });
-    router.push(newUrl.toString(), { shallow: true });
+    router.push(newUrl.toString(), { shallow: true } as NavigateOptions);
   }, [nameFilter, filteredregion, router]);
 
   return (

@@ -25,7 +25,7 @@ const SearchInput: React.FC<ISearchInput> = ({
     if (nameFilter == "") {
       setNamefilteredData(filteredData);
     }
-  }, [nameFilter, filteredData]);
+  }, [nameFilter, filteredData, setNamefilteredData]);
 
   return (
     <input
