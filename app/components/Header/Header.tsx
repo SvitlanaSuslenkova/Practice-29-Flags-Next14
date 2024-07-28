@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 
 const Header = (): JSX.Element => {
-  const { toggleTheme, theme } = useTheme();
+  const { toggleTheme } = useTheme();
   const [savedTheme, setSavedTheme] = useState<string | null>(null);
 
   useEffect(() => {
