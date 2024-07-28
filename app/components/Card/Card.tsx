@@ -9,7 +9,7 @@ import Loading from "../Loading/LoadingOneCountry";
 import { fetchDataByName } from "../../apiData";
 
 const Card = ({ params }: { params: { country: string } }): JSX.Element => {
-  const [data, setData] = useState<IFlags[] | undefined>();
+  const [data, setData] = useState<IFlags>();
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {

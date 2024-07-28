@@ -10,7 +10,7 @@ const ShortCard: React.FC<IShortCard> = ({
   nameFilter,
   ...country
 }): JSX.Element => {
-  const data: IFlags = country;
+  const data: IFlags = country as IFlags;
   const capitals = data.capital
     ? Object.values(data.capital).join(", ")
     : undefined;

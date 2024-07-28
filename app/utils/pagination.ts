@@ -1,5 +1,7 @@
+import { IFlags } from "../components/Types";
+
 export const paginate = (
-  array: number[],
+  array: IFlags[],
   pageSize: number,
   pageNumber: number
 ) => {
