@@ -108,7 +108,10 @@ export interface IShortCard {
   nameFilter: string | null;
   filteredregion: string | null;
 }
-
+export interface ITheme {
+  theme: string;
+  toggleTheme: () => void;
+}
 /*
 
 {"name":{"common":"Belgium","official":"Kingdom of Belgium",
