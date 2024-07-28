@@ -1,0 +1,73 @@
+.filterContainer {
+  width: 240px;
+  max-height: 64px;
+  margin-left: 4.3vw;
+  color: hsl(var(--text));
+  font-size: 14px;
+}
+
+.filter {
+  height: 60px;
+  border: 0;
+  border-radius: 8px;
+  background-color: hsl(var(--elements));
+  box-shadow: 0 0 8px hsl(210deg 5% 17% / 20%);
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+.filter:hover {
+  color: hsl(var(--light-mode-input));
+}
+.filter > span {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+.filterArrow {
+  justify-self: end;
+}
+.filterList {
+  position: absolute;
+  z-index: 2;
+  margin-top: 4px;
+  border-radius: 8px;
+  background-color: hsl(var(--elements));
+  box-shadow: 0 0 8px hsl(210deg 5% 17% / 20%);
+  font-size: 14px;
+  width: 240px;
+}
+
+.filterList > button {
+  line-height: 250%;
+  padding-inline: 20px;
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  background-color: hsl(var(--elements));
+  color: hsl(var(--text));
+}
+
+.filterList > button:first-of-type {
+  padding-top: 10px;
+  border-radius: 8px 8px 0 0;
+}
+
+.filterList > button:last-of-type {
+  padding-bottom: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.filterList > button:hover {
+  background-color: hsl(var(--light-mode-input), 8%);
+}
+
+@media only screen and (min-width: 800px) {
+  .filterContainer {
+    justify-self: end;
+  }
+}

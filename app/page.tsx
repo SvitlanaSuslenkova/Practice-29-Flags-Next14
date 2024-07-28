@@ -1,95 +1,104 @@
-import Image from "next/image";
+"use client";
 import styles from "./page.module.css";
+import { useState, useEffect, Suspense } from "react";
+import { fetchData } from "./apiData";
+import { IFlags } from "./components/Types";
+import { useRouter, useSearchParams } from "next/navigation";
+import SearchInput from "./components/SearchInput/SearchInput";
+import Filter from "./components/Filter/Filter";
+import CardList from "./components/CardList/CardList";
+import Loading from "./components/Loading/Loading";
 
 export default function Home() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [data, setData] = useState<IFlags[] | undefined>();
+  const [filteredData, setFilteredData] = useState<IFlags[] | undefined>();
+  const [namefilteredData, setNamefilteredData] = useState<
+    IFlags[] | undefined
+  >();
+  const [nameFilter, setNameFilter] = useState<string>(
+    searchParams.get("nameFilter") || ""
+  );
+  const [filteredregion, setFilteredregion] = useState<string>(
+    searchParams.get("filteredregion") || ""
+  );
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchOurData() {
+      try {
+        const gotdata: IFlags[] | undefined = await fetchData();
+
+        setData(gotdata);
+        if (gotdata !== null) {
+          setFilteredData(gotdata);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError("Failed to fetch data. Please try again later.");
+      }
+    }
+    fetchOurData();
+  }, []);
+
+  useEffect(() => {
+    const query = {
+      nameFilter: nameFilter || undefined,
+      filteredregion: filteredregion || undefined,
+    };
+
+    const newUrl = new URL(window.location.href);
+    Object.keys(query).forEach((key) => {
+      if (query[key]) {
+        newUrl.searchParams.set(key, query[key] as string);
+      } else {
+        newUrl.searchParams.delete(key);
+      }
+    });
+    router.push(newUrl.toString(), { shallow: true });
+  }, [nameFilter, filteredregion, router]);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <>
+      <main className={styles.mainContainer}>
+        <div className={styles.container}>
+          <div className={styles.searchAndFilterContainer}>
+            <SearchInput
+              placeholder="Search for a country..."
+              filteredData={filteredData}
+              setNamefilteredData={setNamefilteredData}
+              nameFilter={nameFilter}
+              setNameFilter={setNameFilter}
             />
-          </a>
+            <Filter
+              setFilteredData={setFilteredData}
+              data={data}
+              filteredData={filteredData}
+              filteredregion={filteredregion}
+              setFilteredregion={setFilteredregion}
+            />
+          </div>
+          <Suspense fallback={<Loading />}>
+            <>
+              {error && (
+                <p
+                  style={{ color: "red", marginTop: "80px", fontSize: "20px" }}
+                >
+                  {error}
+                </p>
+              )}
+              <CardList
+                nameFilter={nameFilter}
+                filteredregion={filteredregion}
+                data={data}
+                filteredData={filteredData}
+                namefilteredData={namefilteredData}
+              />
+            </>
+          </Suspense>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

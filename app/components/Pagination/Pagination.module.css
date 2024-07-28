@@ -1,0 +1,55 @@
+.paginationDiv {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  max-width: 1350px;
+  column-gap: 4px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 8px 24px;
+  align-items: center;
+}
+.pagesDiv {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  column-gap: 4px;
+  justify-content: center;
+}
+.buttonBackNext {
+  width: 40px;
+  height: 32px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 8px;
+  border: 0;
+  border-radius: 0.8em;
+  background-color: hsl(var(--elements));
+  box-shadow: 0 0 8px hsl(210deg 5% 17% / 30%);
+  font-size: 16px;
+  color: hsl(var(--text));
+}
+.buttonPage {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.8em;
+  background-color: hsl(var(--elements));
+  box-shadow: 0 0 8px hsl(210deg 5% 17% / 30%);
+  font-size: 16px;
+  color: hsl(var(--text));
+}
+.buttonPage:disabled,
+.buttonBackNext:disabled {
+  color: hsl(var(--light-mode-input));
+  cursor: initial;
+}
+.buttonPage:hover {
+  font-weight: 800;
+}
+.buttonBackNext:hover {
+  font-size: 17px;
+}

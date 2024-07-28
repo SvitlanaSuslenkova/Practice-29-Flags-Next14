@@ -1,0 +1,17 @@
+.pageOneCountry {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 24px 7.5%;
+  background-color: hsl(var(--background));
+  box-shadow: inset 0 4px 8px hsl(210deg 5% 17% / 10%);
+}
+.CountryDiv {
+  display: block;
+  margin-inline: auto;
+  max-width: 1426px;
+}
+@media only screen and (min-width: 950px) {
+  .pageOneCountry {
+    padding-top: 56px;
+  }
+}

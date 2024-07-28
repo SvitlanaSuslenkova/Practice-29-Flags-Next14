@@ -1,0 +1,39 @@
+.spinner {
+  font-size: clamp(32px, 7vw, 48px);
+  color: hsl(var(--text));
+  opacity: 0.5;
+  -webkit-animation-name: spin; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); /* Safari 4.0 - 8.0 */
+  }
+  100% {
+    -webkit-transform: rotate(360deg); /* Safari 4.0 - 8.0 */
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.cardOneCountry {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: auto;
+  justify-items: center;
+  align-items: center;
+  padding-top: 20vh;
+  font-size: clamp(24px, 6vw, 40px);
+  background-color: hsl(var(--background));
+}

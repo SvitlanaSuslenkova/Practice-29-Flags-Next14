@@ -1,0 +1,314 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended",
+    "stylelint-config-css-modules",
+    "stylelint-config-clean-order"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+     "color-function-notation": [
+      "modern",
+      {
+        "ignore": ["with-var-inside"]
+      }
+    ]
+  },
+    "indentation": null,
+    "color-hex-case": "upper",
+    "selector-class-pattern": null,
+    "order/properties-order": [
+      "position",
+      "display",
+      "z-index",
+      "top",
+
+      "right",
+      "bottom",
+
+      "left",
+
+      "visibility",
+
+      "overflow",
+
+      "overflow-x",
+
+      "overflow-y",
+      "float",
+
+      "clear",
+
+      "flex",
+
+      "flex-grow",
+
+      "flex-shrink",
+      "flex-basis",
+      "flex-direction",
+
+      "flex-wrap",
+      "justify-content",
+      "align-items",
+
+      "align-self",
+      "order",
+
+      "grid",
+
+      "grid-area",
+
+      "grid-template",
+      "grid-template-rows",
+      "grid-template-columns",
+      "grid-template-areas",
+
+      "grid-gap",
+
+      "grid-row-gap",
+
+      "grid-column-gap",
+
+      "grid-auto-rows",
+      "grid-auto-columns",
+
+      "grid-auto-flow",
+
+      "gap",
+      "row-gap",
+
+      "column-gap",
+
+      "width",
+
+      "min-width",
+
+      "max-width",
+
+      "height",
+      "min-height",
+      "max-height",
+
+      "margin",
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+
+      "margin-left",
+
+      "padding",
+
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left",
+
+      "border",
+      "border-width",
+
+      "border-style",
+
+      "border-color",
+      "border-top",
+      "border-top-width",
+      "border-top-style",
+
+      "border-top-color",
+      "border-right",
+
+      "border-right-width",
+      "border-right-style",
+      "border-right-color",
+      "border-bottom",
+      "border-bottom-width",
+      "border-bottom-style",
+
+      "border-bottom-color",
+      "border-left",
+      "border-left-width",
+      "border-left-style",
+
+      "border-left-color",
+      "border-radius",
+
+      "border-top-left-radius",
+      "border-top-right-radius",
+      "border-bottom-right-radius",
+      "border-bottom-left-radius",
+      "border-image",
+      "border-image-source",
+
+      "border-image-slice",
+      "border-image-width",
+
+      "border-image-outset",
+
+      "border-image-repeat",
+
+      "outline",
+
+      "outline-width",
+      "outline-style",
+
+      "outline-color",
+
+      "outline-offset",
+
+      "background",
+      "background-color",
+      "background-image",
+      "background-repeat",
+      "background-position",
+      "background-size",
+      "background-clip",
+      "background-origin",
+
+      "background-attachment",
+
+      "background-blend-mode",
+
+      "box-shadow",
+
+      "color",
+      "font",
+
+      "font-family",
+
+      "font-size",
+
+      "font-weight",
+      "font-style",
+      "font-variant",
+      "font-size-adjust",
+
+      "font-stretch",
+      "font-smoothing",
+      "font-feature-settings",
+
+      "font-kerning",
+      "font-variant-ligatures",
+
+      "font-variant-caps",
+
+      "font-variant-numeric",
+      "font-variant-east-asian",
+
+      "font-variant-alternates",
+      "text-align",
+      "text-align-last",
+
+      "text-transform",
+      "text-decoration",
+
+      "text-decoration-line",
+      "text-decoration-color",
+      "text-decoration-style",
+
+      "text-decoration-thickness",
+      "text-indent",
+      "text-justify",
+      "text-overflow",
+
+      "text-shadow",
+      "text-wrap",
+      "text-emphasis",
+      "text-emphasis-color",
+      "text-emphasis-style",
+      "text-emphasis-position",
+
+      "letter-spacing",
+
+      "line-height",
+      "word-spacing",
+
+      "white-space",
+      "word-break",
+
+      "word-wrap",
+      "tab-size",
+
+      "list-style",
+      "list-style-type",
+      "list-style-position",
+      "list-style-image",
+
+      "table-layout",
+
+      "border-collapse",
+      "border-spacing",
+      "caption-side",
+      "empty-cells",
+
+      "animation",
+      "animation-name",
+
+      "animation-duration",
+
+      "animation-timing-function",
+      "animation-delay",
+      "animation-iteration-count",
+      "animation-direction",
+      "animation-fill-mode",
+      "animation-play-state",
+
+      "transform",
+      "transform-origin",
+      "transform-style",
+      "backface-visibility",
+
+      "perspective",
+      "perspective-origin",
+
+      "transition",
+
+      "transition-property",
+
+      "transition-duration",
+
+      "transition-timing-function",
+      "transition-delay",
+
+      "appearance",
+
+      "clip",
+
+      "clip-path",
+      "counter-reset",
+
+      "counter-increment",
+
+      "resize",
+
+      "cursor",
+      "content",
+      "quotes",
+      "filter",
+      "backdrop-filter",
+      "will-change",
+
+      "touch-action",
+      "user-select",
+      "pointer-events",
+
+      "opacity",
+      "isolation",
+      "mix-blend-mode",
+
+      "object-fit",
+      "object-position",
+      "overflow-anchor",
+      "overscroll-behavior",
+      "scroll-behavior",
+
+      "scroll-snap-type",
+
+      "scroll-snap-align",
+      "scroll-snap-stop",
+      "scroll-padding",
+
+      "scroll-margin",
+      "scrollbar-width",
+      "scrollbar-color"
+    ]
+  }
+}
