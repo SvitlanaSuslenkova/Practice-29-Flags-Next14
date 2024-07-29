@@ -84,7 +84,7 @@ export interface IfilteredData {
 }
 export interface ISearchInput {
   placeholder: string;
-  filteredData: IFlags[] | undefined;
+  filteredData: IFlags[] | null;
   setNamefilteredData: (namefilteredData: IFlags[] | undefined) => void;
   nameFilter: string | null;
   setNameFilter: (nameFilter: string | "") => void;

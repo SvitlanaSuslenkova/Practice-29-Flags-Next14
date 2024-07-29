@@ -12,16 +12,6 @@ import { Iquery } from "./components/Types";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const [data, setData] = useState<IFlags[] | undefined>();
