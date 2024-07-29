@@ -112,6 +112,10 @@ export interface ITheme {
   theme: string;
   toggleTheme: () => void;
 }
+export interface Iquery {
+  nameFilter: string | null;
+  filteredregion: string | null;
+}
 /*
 
 {"name":{"common":"Belgium","official":"Kingdom of Belgium",

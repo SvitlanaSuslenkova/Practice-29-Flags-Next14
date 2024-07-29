@@ -4,7 +4,7 @@ import { HiOutlineArrowLeft } from "react-icons/hi";
 import Button from "../components/Button/Button";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "../pageOneCountry.module.css";
 
 function CountryDetails({ params }: { params: { country: string } }) {
   const router = useRouter();

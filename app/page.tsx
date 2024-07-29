@@ -8,6 +8,7 @@ import SearchInput from "./components/SearchInput/SearchInput";
 import Filter from "./components/Filter/Filter";
 import CardList from "./components/CardList/CardList";
 import Loading from "./components/Loading/Loading";
+import { Iquery } from "./components/Types";
 import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function Home() {
@@ -42,10 +43,7 @@ export default function Home() {
     }
     fetchOurData();
   }, []);
-  interface Iquery {
-    nameFilter: string | null;
-    filteredregion: string | null;
-  }
+
   useEffect(() => {
     const query: Iquery = {
       nameFilter: nameFilter || null,
