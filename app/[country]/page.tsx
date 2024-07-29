@@ -8,9 +8,10 @@ import styles from "../pageOneCountry.module.css";
 
 function CountryDetails({ params }: { params: { country: string } }) {
   const router = useRouter();
-  const searchp = useSearchParams();
+  const searchParams = useSearchParams();
   function goBack() {
-    router.push(`/?${searchp}`);
+    const query = searchParams.toString();
+    router.push(`/?${query}`);
     //router.back();
   }
   return (

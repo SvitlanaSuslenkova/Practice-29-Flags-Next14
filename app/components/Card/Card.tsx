@@ -25,7 +25,7 @@ const Card = ({ params }: { params: { country: string } }): JSX.Element => {
       }
     }
     fetchOurData();
-  }, []);
+  }, [params.country]);
 
   if (!data) {
     return <Loading />;

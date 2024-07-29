@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "./Context/ThemeContext";
-import { Nunito_Sans, Open_Sans } from "next/font/google";
+import { Open_Sans, Nunito_Sans } from "next/font/google";
 import Header from "./components/Header/Header";
 import "./reset.css";
 import "./globals.css";
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.className}, ${nunitoSans.className}`}>
+      <body className={`${openSans.className} ${nunitoSans.className}`}>
         <ThemeProvider>
           <Header />
           {children}
