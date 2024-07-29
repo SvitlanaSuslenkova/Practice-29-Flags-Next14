@@ -19,7 +19,7 @@ function CountryDetails({ params }: { params: { country: string } }) {
     <>
       <div className={styles.pageOneCountry}>
         <div className={styles.CountryDiv}>
-          <Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Button onClick={() => goBack()}>
               <HiOutlineArrowLeft /> Back
             </Button>
