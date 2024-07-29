@@ -5,6 +5,7 @@ import Button from "../components/Button/Button";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import styles from "../pageOneCountry.module.css";
+import { Suspense } from "react";
 
 function CountryDetails({ params }: { params: { country: string } }) {
   const router = useRouter();
@@ -18,9 +19,11 @@ function CountryDetails({ params }: { params: { country: string } }) {
     <>
       <div className={styles.pageOneCountry}>
         <div className={styles.CountryDiv}>
-          <Button onClick={() => goBack()}>
-            <HiOutlineArrowLeft /> Back
-          </Button>
+          <Suspense>
+            <Button onClick={() => goBack()}>
+              <HiOutlineArrowLeft /> Back
+            </Button>
+          </Suspense>
           <Card params={params} />
         </div>
       </div>
