@@ -66,20 +66,24 @@ export default function Home() {
       <main className={styles.mainContainer}>
         <div className={styles.container}>
           <div className={styles.searchAndFilterContainer}>
-            <SearchInput
-              placeholder="Search for a country..."
-              filteredData={filteredData}
-              setNamefilteredData={setNamefilteredData}
-              nameFilter={nameFilter}
-              setNameFilter={setNameFilter}
-            />
-            <Filter
-              setFilteredData={setFilteredData}
-              data={data}
-              filteredData={filteredData}
-              filteredregion={filteredregion}
-              setFilteredregion={setFilteredregion}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <SearchInput
+                placeholder="Search for a country..."
+                filteredData={filteredData}
+                setNamefilteredData={setNamefilteredData}
+                nameFilter={nameFilter}
+                setNameFilter={setNameFilter}
+              />
+            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Filter
+                setFilteredData={setFilteredData}
+                data={data}
+                filteredData={filteredData}
+                filteredregion={filteredregion}
+                setFilteredregion={setFilteredregion}
+              />
+            </Suspense>
           </div>
           <Suspense fallback={<Loading />}>
             <>
