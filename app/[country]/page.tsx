@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import styles from "../pageOneCountry.module.css";
 import { Suspense } from "react";
+import Loading from "../components/Loading/LoadingOneCountry";
 
 function CountryDetails({ params }: { params: { country: string } }) {
   const router = useRouter();
@@ -24,7 +25,9 @@ function CountryDetails({ params }: { params: { country: string } }) {
               <HiOutlineArrowLeft /> Back
             </Button>
           </Suspense>
-          <Card params={params} />
+          <Suspense fallback={<Loading />}>
+            <Card params={params} />
+          </Suspense>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import { IFlags } from "../Types";
 import styles from "./Card.module.css";
 import Image from "next/image";
 import BorderCountries from "./BorderCountries/BorderCountries";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../Loading/LoadingOneCountry";
 import { fetchDataByName } from "../../apiData";
 
@@ -45,7 +45,7 @@ const Card = ({ params }: { params: { country: string } }): JSX.Element => {
   const capitals = data.capital ? Object.values(data.capital).join(", ") : null;
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       {error && (
         <p style={{ color: "red", marginTop: "80px", fontSize: "20px" }}>
           {error}
@@ -115,7 +115,7 @@ const Card = ({ params }: { params: { country: string } }): JSX.Element => {
           </article>
         </div>
       )}
-    </Suspense>
+    </>
   );
 };
 
