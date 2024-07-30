@@ -1,4 +1,3 @@
-import styles from "./page.module.css";
 import dynamic from "next/dynamic";
 import Loading from "./components/Loading/Loading";
 
@@ -11,11 +10,7 @@ const Homepage = dynamic(() => import("./components/Homepage"), {
 export default function Home() {
   return (
     <>
-      <main className={styles.mainContainer}>
-        <div className={styles.container}>
-          <Homepage />
-        </div>
-      </main>
+      <Homepage />
     </>
   );
 }
