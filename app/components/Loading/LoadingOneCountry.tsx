@@ -1,3 +1,4 @@
+"use client";
 import { CgSpinner } from "react-icons/cg";
 import styles from "./LoadingOneCountry.module.css";
 export default function LoadingOneCountry() {
