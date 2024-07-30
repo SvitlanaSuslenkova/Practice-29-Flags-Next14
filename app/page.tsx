@@ -82,15 +82,14 @@ export default function Home() {
               />
             </Suspense>
           </div>
-          <Suspense fallback={<Loading />}>
-            <>
-              {error && (
-                <p
-                  style={{ color: "red", marginTop: "80px", fontSize: "20px" }}
-                >
-                  {error}
-                </p>
-              )}
+
+          <>
+            {error && (
+              <p style={{ color: "red", marginTop: "80px", fontSize: "20px" }}>
+                {error}
+              </p>
+            )}
+            <Suspense fallback={<Loading />}>
               <CardList
                 nameFilter={nameFilter}
                 filteredregion={filteredregion}
@@ -98,8 +97,8 @@ export default function Home() {
                 filteredData={filteredData}
                 namefilteredData={namefilteredData}
               />
-            </>
-          </Suspense>
+            </Suspense>
+          </>
         </div>
       </main>
     </>
