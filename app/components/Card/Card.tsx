@@ -31,22 +31,18 @@ const Card = ({ params }: { params: { country: string } }): JSX.Element => {
     return <Loading />;
   }
 
-  const languageForName: string | undefined = data.languages
+  const languageForName: string | null = data.languages
     ? Object.keys(data.languages)[0]
-    : undefined;
-  const nativename: string | undefined = languageForName
+    : null;
+  const nativename: string | null = languageForName
     ? data.name.nativeName[languageForName]?.common
-    : undefined;
-  const currency = data.currencies
-    ? Object.keys(data.currencies)[0]
-    : undefined;
+    : null;
+  const currency = data.currencies ? Object.keys(data.currencies)[0] : null;
   const languageNames = data.languages
     ? Object.values(data.languages).reverse().join(", ")
-    : undefined;
+    : null;
   const borders: string[] | null = data.borders;
-  const capitals = data.capital
-    ? Object.values(data.capital).join(", ")
-    : undefined;
+  const capitals = data.capital ? Object.values(data.capital).join(", ") : null;
 
   return (
     <Suspense fallback={<Loading />}>

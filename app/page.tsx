@@ -14,11 +14,9 @@ import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-
 export default function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [data, setData] = useState<IFlags[] | undefined>();
-  const [filteredData, setFilteredData] = useState<IFlags[] | undefined>();
-  const [namefilteredData, setNamefilteredData] = useState<
-    IFlags[] | undefined
-  >();
+  const [data, setData] = useState<IFlags[] | null>();
+  const [filteredData, setFilteredData] = useState<IFlags[] | null>();
+  const [namefilteredData, setNamefilteredData] = useState<IFlags[] | null>();
   const [nameFilter, setNameFilter] = useState<string>(
     searchParams.get("nameFilter") || ""
   );
@@ -30,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchOurData() {
       try {
-        const gotdata: IFlags[] | undefined = await fetchData();
+        const gotdata: IFlags[] | null = await fetchData();
 
         setData(gotdata);
         if (gotdata !== null) {
@@ -79,7 +77,6 @@ export default function Home() {
               <Filter
                 setFilteredData={setFilteredData}
                 data={data}
-                filteredData={filteredData}
                 filteredregion={filteredregion}
                 setFilteredregion={setFilteredregion}
               />

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { ITheme } from "../components/Types";
 
-const ThemeContext = createContext<ITheme | undefined>(undefined);
+const ThemeContext = createContext<ITheme | null>(null);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState("light");

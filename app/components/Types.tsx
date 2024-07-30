@@ -74,39 +74,31 @@ export interface IFlags {
 export interface FlagsProps {
   data: IFlags[];
 }
-export interface IfilteredData {
-  filteredData?: IFlags[] | undefined;
-  setFilteredData: (filteredData: IFlags[] | undefined) => void;
-  data?: IFlags[] | undefined;
-  placeholder?: string;
-  namefilteredData?: IFlags[] | undefined;
-  setNamefilteredData: (namefilteredData: IFlags[] | undefined) => void;
-}
+
 export interface ISearchInput {
   placeholder: string;
-  filteredData: IFlags[] | null;
-  setNamefilteredData: (namefilteredData: IFlags[] | undefined) => void;
+  filteredData: IFlags[] | null | undefined;
+  setNamefilteredData: (namefilteredData: IFlags[] | null | undefined) => void;
   nameFilter: string | null;
   setNameFilter: (nameFilter: string | "") => void;
 }
+
 export interface IFilter {
-  setFilteredData: (filteredData: IFlags[] | undefined) => void;
-  data: IFlags[] | undefined;
-  filteredData: IFlags[] | undefined;
+  setFilteredData: (filteredData: IFlags[] | null | undefined) => void;
+  data: IFlags[] | null | undefined;
   filteredregion: string | null;
   setFilteredregion: (filteredregion: string) => void;
 }
 export interface ICardList {
-  filteredData: IFlags[] | undefined;
-  namefilteredData: IFlags[] | undefined;
-  data: IFlags[] | undefined;
+  filteredData: IFlags[] | null | undefined;
+  namefilteredData: IFlags[] | null | undefined;
+  data: IFlags[] | null | undefined;
   nameFilter: string | null;
-  filteredregion: string | null;
-  //paginatedCountries: IFlags[] | undefined;
+  filteredregion: string | null | undefined;
 }
 export interface IShortCard {
   nameFilter: string | null;
-  filteredregion: string | null;
+  filteredregion: string | null | undefined;
 }
 export interface ITheme {
   theme: string;
