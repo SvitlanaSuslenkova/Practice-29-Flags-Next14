@@ -46,8 +46,8 @@ const CardList: React.FC<ICardList> = ({
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   useEffect(() => {
-    if (nameFilter || filteredregion) setCurrentPage(1);
-    sessionStorage.setItem("currentSessionPage", "1");
+    if (nameFilter || filteredregion) {setCurrentPage(1);
+    sessionStorage.setItem("currentSessionPage", "1");}
   }, [nameFilter, filteredregion]);
   useEffect(() => {
     const cPage = sessionStorage.getItem("currentSessionPage");
