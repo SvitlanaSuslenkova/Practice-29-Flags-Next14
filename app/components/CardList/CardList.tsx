@@ -6,6 +6,7 @@ import styles from "./CardList.module.css";
 import { IFlags } from "../Types";
 import { lazy, useState, useEffect } from "react";
 import { paginate } from "../../utils/pagination";
+
 const Pagination = lazy(() => import("../Pagination/Pagination"));
 
 const CardList: React.FC<ICardList> = ({
@@ -14,6 +15,8 @@ const CardList: React.FC<ICardList> = ({
   nameFilter,
   filteredregion,
   data,
+  setCurrentPage,
+  currentPage,
 }) => {
   const [paginatedCountries, setPaginatedCountries] = useState<IFlags[]>([]);
   // const [itemsPerPage, setItemsPerPage] = useState(4);
@@ -43,18 +46,6 @@ const CardList: React.FC<ICardList> = ({
       window.removeEventListener("resize", handleResize);
     };
   }, []);*/
-
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  useEffect(() => {
-    if (nameFilter || filteredregion) {setCurrentPage(1);
-    sessionStorage.setItem("currentSessionPage", "1");}
-  }, [nameFilter, filteredregion]);
-  useEffect(() => {
-    const cPage = sessionStorage.getItem("currentSessionPage");
-    if (cPage) {
-      setCurrentPage(Number(cPage));
-    }
-  }, []);
 
   useEffect(() => {
     if (!data) return;
@@ -87,6 +78,7 @@ const CardList: React.FC<ICardList> = ({
               key={country.name.common}
               nameFilter={nameFilter}
               filteredregion={filteredregion}
+              currentPage={currentPage}
               {...country}
             />
           ))}
