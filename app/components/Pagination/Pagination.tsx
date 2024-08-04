@@ -24,6 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {data && (
         <div className={styles.paginationDiv}>
           <button
+            title="back"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
             className={styles.buttonBackNext}
@@ -38,6 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({
                   onClick={() => onPageChange(page)}
                   disabled={currentPage === page}
                   className={styles.buttonPage}
+                  title="next"
                 >
                   {page}
                 </button>
