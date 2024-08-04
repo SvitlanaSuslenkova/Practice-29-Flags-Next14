@@ -25,6 +25,10 @@ export default function Homepage() {
   );
   const [error, setError] = useState<string | null>(null);
 
+  const [currentPage, setCurrentPage] = useState<number>(
+    Number(searchParams.get("currentPage")) || 1
+  );
+
   useEffect(() => {
     async function fetchOurData() {
       try {
@@ -46,6 +50,7 @@ export default function Homepage() {
     const query: Iquery = {
       nameFilter: nameFilter || null,
       filteredregion: filteredregion || null,
+      currentPage: currentPage.toString() || "1",
     };
 
     const newUrl = new URL(window.location.href);
@@ -57,7 +62,7 @@ export default function Homepage() {
       }
     });
     router.push(newUrl.toString(), { shallow: true } as NavigateOptions);
-  }, [nameFilter, filteredregion, router]);
+  }, [nameFilter, filteredregion, currentPage, router]);
 
   return (
     <>
@@ -96,6 +101,8 @@ export default function Homepage() {
                 data={data}
                 filteredData={filteredData}
                 namefilteredData={namefilteredData}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
               />
             </Suspense>
           </>
