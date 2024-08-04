@@ -18,6 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
   data,
 }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
+
   return (
     <>
       {data && (
@@ -56,3 +57,43 @@ const Pagination: React.FC<PaginationProps> = ({
   );
 };
 export default Pagination;
+/*
+            {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+              (page) => (
+                <button
+                  key={page}
+                  onClick={() => onPageChange(page)}
+                  disabled={currentPage === page}
+                  className={styles.buttonPage}
+                >
+                  {page}
+                </button>
+              )
+            )}
+
+            */
+/*
+  const buttonsToShow = [
+    currentPage - 2,
+    currentPage - 1,
+    currentPage,
+    currentPage + 1,
+    currentPage + 2,
+    currentPage + 3,
+  ];
+  const buttonsToShowW = buttonsToShow.filter(
+    (button) => button >= 1 && button <= totalPages
+  );
+            {currentPage > 3 && <p className={styles.dots}>...</p>}
+            {buttonsToShowW.map((page) => (
+              <button
+                key={page}
+                onClick={() => onPageChange(page)}
+                disabled={currentPage === page}
+                className={styles.buttonPage}
+              >
+                {page}
+              </button>
+            ))}
+            {currentPage + 3 < totalPages && <p className={styles.dots}>...</p>}
+            */
