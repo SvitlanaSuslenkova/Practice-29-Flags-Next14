@@ -81,6 +81,7 @@ export interface ISearchInput {
   setNamefilteredData: (namefilteredData: IFlags[] | null | undefined) => void;
   nameFilter: string | null;
   setNameFilter: (nameFilter: string | "") => void;
+  setCurrentPage: (currentPage: number) => void;
 }
 
 export interface IFilter {
@@ -88,6 +89,7 @@ export interface IFilter {
   data: IFlags[] | null | undefined;
   filteredregion: string | null;
   setFilteredregion: (filteredregion: string) => void;
+  setCurrentPage: (currentPage: number) => void;
 }
 export interface ICardList {
   filteredData: IFlags[] | null | undefined;

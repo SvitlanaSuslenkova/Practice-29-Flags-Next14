@@ -10,10 +10,12 @@ const SearchInput: React.FC<ISearchInput> = ({
   setNamefilteredData,
   nameFilter,
   setNameFilter,
+  setCurrentPage,
 }): JSX.Element => {
   function countryNameFilter(e: React.ChangeEvent<HTMLInputElement>) {
     //e.preventDefault;
     setNameFilter((e.target as HTMLInputElement).value);
+    setCurrentPage(1);
   }
   useEffect(() => {
     if (nameFilter && filteredData) {

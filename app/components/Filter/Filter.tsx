@@ -10,6 +10,7 @@ const Filter: React.FC<IFilter> = ({
   data,
   filteredregion,
   setFilteredregion,
+  setCurrentPage,
 }): JSX.Element => {
   const [openSelect, setOpenSelect] = useState(false);
 
@@ -34,6 +35,7 @@ const Filter: React.FC<IFilter> = ({
     const newregion = (e.target as HTMLButtonElement).value;
     if (newregion) {
       setFilteredregion(newregion);
+      setCurrentPage(1);
     }
   }
   return (

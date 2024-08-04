@@ -12,9 +12,9 @@ function CountryDetails({ params }: { params: { country: string } }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   function goBack() {
-    const query = searchParams.toString();
-    router.push(`/?${query}`);
+    router.push(`/?${searchParams.toString()}`);
     //router.back();
+    console.log(searchParams.toString());
   }
   return (
     <>

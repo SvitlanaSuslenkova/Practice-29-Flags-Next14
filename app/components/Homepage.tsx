@@ -76,6 +76,7 @@ export default function Homepage() {
                 setNamefilteredData={setNamefilteredData}
                 nameFilter={nameFilter}
                 setNameFilter={setNameFilter}
+                setCurrentPage={setCurrentPage}
               />
             </Suspense>
             <Suspense fallback={<div>Loading...</div>}>
@@ -84,6 +85,7 @@ export default function Homepage() {
                 data={data}
                 filteredregion={filteredregion}
                 setFilteredregion={setFilteredregion}
+                setCurrentPage={setCurrentPage}
               />
             </Suspense>
           </div>
