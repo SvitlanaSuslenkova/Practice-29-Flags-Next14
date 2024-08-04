@@ -1,18 +1,19 @@
 "use client";
-import React, { useEffect, useState } from "react";
+//import React, { useEffect, useState } from "react";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import { useTheme } from "../../Context/ThemeContext";
 import styles from "./Header.module.css";
 import Link from "next/link";
 
 const Header = (): JSX.Element => {
-  const { toggleTheme } = useTheme();
-  const [savedTheme, setSavedTheme] = useState<string | null>(null);
+  const { theme, toggleTheme } = useTheme();
+  /*const [savedTheme, setSavedTheme] = useState<string | null>(null);
+  console.log(theme);
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     setSavedTheme(theme);
-  }, []);
+  }, []);*/
   const cleanSearchParams = () => {
     sessionStorage.setItem("filteredregion", "");
     sessionStorage.setItem("nameFilter", "");
@@ -29,7 +30,7 @@ const Header = (): JSX.Element => {
         </Link>
         <p className={styles.mode}>
           <button onClick={toggleTheme} className={styles.buttonMode}>
-            {savedTheme !== "light" ? (
+            {theme !== "light" ? (
               <span>
                 <HiOutlineMoon className={styles.iconMode} />
                 Dark Mode
