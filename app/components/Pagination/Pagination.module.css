@@ -53,3 +53,8 @@
 .buttonBackNext:hover {
   font-size: 17px;
 }
+.dots {
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-top: -3px;
+}

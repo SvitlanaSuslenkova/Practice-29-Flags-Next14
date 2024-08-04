@@ -95,10 +95,13 @@ export interface ICardList {
   data: IFlags[] | null | undefined;
   nameFilter: string | null;
   filteredregion: string | null | undefined;
+  setCurrentPage: (currentPage: number) => void;
+  currentPage: number;
 }
 export interface IShortCard {
   nameFilter: string | null;
   filteredregion: string | null | undefined;
+  currentPage: number | 1;
 }
 export interface ITheme {
   theme: string;
@@ -107,6 +110,7 @@ export interface ITheme {
 export interface Iquery {
   nameFilter: string | null;
   filteredregion: string | null;
+  currentPage: string | "1";
 }
 /*
 

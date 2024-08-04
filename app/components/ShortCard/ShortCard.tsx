@@ -8,6 +8,7 @@ import { IFlags } from "../Types";
 const ShortCard: React.FC<IShortCard> = ({
   filteredregion,
   nameFilter,
+  currentPage,
   ...country
 }): JSX.Element => {
   const data: IFlags = country as IFlags;
@@ -18,7 +19,7 @@ const ShortCard: React.FC<IShortCard> = ({
         <Link
           href={{
             pathname: data.name.common,
-            query: { nameFilter, filteredregion },
+            query: { nameFilter, filteredregion, currentPage },
           }}
           className={styles.shortCardDivLink}
         >
